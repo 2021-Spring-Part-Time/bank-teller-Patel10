@@ -1,5 +1,6 @@
 package teller;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +19,23 @@ public class Bank {
         return accounts.get(accountNumber);
     }
 
+    public Collection<BankAccount> getAllAccounts() {
+        return accounts.values();
+    }
+
+    public void close(BankAccount account1) {
+        accounts.remove(account1.getAccountNumber(), account1);
+    }
+
+    public void withdrawal(String accountNumber, int amountToWithdrawal) {
+        BankAccount withdrawalFromAccount = findAccount(accountNumber);
+        withdrawalFromAccount.withdrawal(amountToWithdrawal);
+    }
+
+    public void deposit(String accountNumber, int amountToDeposit) {
+        BankAccount DepositInAccount = findAccount(accountNumber);
+        DepositInAccount.deposit(amountToDeposit);
+    }
 }
 
 

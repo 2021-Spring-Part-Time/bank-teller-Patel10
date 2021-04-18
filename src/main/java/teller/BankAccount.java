@@ -9,6 +9,9 @@ public class BankAccount {
     public String getAccountNumber() {
         return accountNumber;
     }
+    public int getBalance() {
+        return balance;
+    }
 
     public BankAccount(String accountNumber, String type, int balance) {
         this.accountNumber = accountNumber;
@@ -17,4 +20,10 @@ public class BankAccount {
     }
 
 
+    public void withdrawal(int amountToWithdrawal) {
+        balance -=amountToWithdrawal;
+    }
+    public void deposit(int amountToDeposit){
+        balance +=amountToDeposit;
+    }
 }
